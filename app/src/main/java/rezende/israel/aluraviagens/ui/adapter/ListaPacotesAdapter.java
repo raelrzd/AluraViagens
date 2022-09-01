@@ -10,7 +10,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import rezende.israel.aluraviagens.R;
 import rezende.israel.aluraviagens.model.Pacote;
@@ -58,10 +62,19 @@ public class ListaPacotesAdapter extends BaseAdapter {
         imagem.setImageDrawable(drawableImagemPacote);
 
         TextView dias = viewCriada.findViewById(R.id.item_pacote_dias);
-        dias.setText(pacote.getDias() + " dias");
+        String quantDias = "";
+        if (pacote.getDias() > 1){
+            quantDias = pacote.getDias() + " dias";
+        } else {
+            quantDias = pacote.getDias() + " dia";
+        }
+        dias.setText(quantDias);
 
         TextView preco = viewCriada.findViewById(R.id.item_pacote_preco);
-        preco.setText(pacote.getPreco().toString());
+        BigDecimal precoDoPacote = pacote.getPreco();
+        NumberFormat moedaBr = DecimalFormat.getCurrencyInstance(new Locale("pt", "br"));
+        String valorPacote = moedaBr.format(precoDoPacote);
+        preco.setText(valorPacote);
 
         return viewCriada;
     }
