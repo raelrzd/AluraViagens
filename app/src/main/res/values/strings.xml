@@ -3,4 +3,5 @@
     <string name="conteudo_banner_inicial">Banner inicial dos pacotes</string>
     <string name="brasil">Brasil</string>
     <string name="especial">Especial</string>
+    <string name="imagem_indicativa_do_pacote">Imagem indicativa do pacote</string>
 </resources>
