@@ -88,13 +88,13 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_cvc_cartao_de_credito"
         android:hint="@string/cvc_cartao"
+        android:importantForAutofill="no"
         android:inputType="number"
         android:maxLength="3"
         android:textAlignment="center"
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="@id/pagamento_numero_cartao"
-        app:layout_constraintTop_toBottomOf="@+id/pagamento_numero_cartao"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/pagamento_numero_cartao" />
 
     <EditText
         android:id="@+id/pagamento_nome_cartao"
