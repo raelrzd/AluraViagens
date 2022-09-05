@@ -97,7 +97,8 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/pagamento_cvc_cartao"
         app:layout_constraintStart_toStartOf="@+id/pagamento_mes_cartao"
-        app:layout_constraintTop_toBottomOf="@+id/pagamento_cvc_cartao" />
+        app:layout_constraintTop_toBottomOf="@+id/pagamento_cvc_cartao"
+        android:digits="abcdefghijklmnopqrstuvwxyzçABCDEFGHIJKLMNOPQRSTUVWXYZÇ " />
 
     <Button
         android:layout_width="0dp"
