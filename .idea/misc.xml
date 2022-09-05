@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/botao_redondo_laranja.xml" value="0.2195" />
         <entry key="app/src/main/res/layout/activity_lista_pacotes.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_pagamento.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_resumo_pacote.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_pacote.xml" value="0.3770491803278688" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19" />
