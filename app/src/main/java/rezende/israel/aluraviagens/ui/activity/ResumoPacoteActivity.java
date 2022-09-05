@@ -1,21 +1,17 @@
 package rezende.israel.aluraviagens.ui.activity;
 
-import android.content.res.Resources;
+import static rezende.israel.aluraviagens.util.DataUtil.periodoEmTexto;
+
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 import rezende.israel.aluraviagens.R;
-import rezende.israel.aluraviagens.dao.PacoteDAO;
 import rezende.israel.aluraviagens.model.Pacote;
 import rezende.israel.aluraviagens.util.DiasUtil;
 import rezende.israel.aluraviagens.util.MoedaUtil;
@@ -23,40 +19,51 @@ import rezende.israel.aluraviagens.util.ResourceUtil;
 
 public class ResumoPacoteActivity extends AppCompatActivity {
 
+    public static final String TITULO_APPBAR = "Resumo do Pacote";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumo_pacote);
-        setTitle("Resumo do Pacote");
+        setTitle(TITULO_APPBAR);
 
         Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2, new BigDecimal("243.99"));
 
-        TextView local = findViewById(R.id.resumo_pacote_local);
-        local.setText(pacoteSaoPaulo.getLocal());
+        mostraLocal(pacoteSaoPaulo);
+        mostraImagem(pacoteSaoPaulo);
+        mostraDias(pacoteSaoPaulo);
+        mostraPreco(pacoteSaoPaulo);
+        mostraData(pacoteSaoPaulo);
 
-        ImageView imagem = findViewById(R.id.resumo_pacote_imagem);
-        Drawable drawableDoPacote = ResourceUtil.devolveDrawable(this, pacoteSaoPaulo.getImagem());
-        imagem.setImageDrawable(drawableDoPacote);
+    }
 
-        TextView dias = findViewById(R.id.resumo_pacote_dias);
-        String diasFormatado = DiasUtil.formataDiasEmTexto(pacoteSaoPaulo.getDias());
-        dias.setText(diasFormatado);
-
-        TextView preco = findViewById(R.id.resumo_pacote_preco);
-        String moedaBr = MoedaUtil.formataParaMoedaBr(pacoteSaoPaulo.getPreco());
-        preco.setText(moedaBr);
-
-
-        Calendar dataIda = Calendar.getInstance();
-        Calendar dataVolta = Calendar.getInstance();
-        dataVolta.add(Calendar.DATE, pacoteSaoPaulo.getDias());
-
+    private void mostraData(Pacote pacoteSaoPaulo) {
         TextView data = findViewById(R.id.resumo_pacote_data);
-        SimpleDateFormat formatoEsperado = new SimpleDateFormat("dd/MM");
-        String dataIdaFormatada = formatoEsperado.format(dataIda.getTime());
-        String dataVoltaFormatada = formatoEsperado.format(dataVolta.getTime());
-        String dataViagemFormatada = dataIdaFormatada + " - " + dataVoltaFormatada + " de " + dataVolta.get(Calendar.YEAR);
+        String dataViagemFormatada = periodoEmTexto(pacoteSaoPaulo.getDias());
         data.setText(dataViagemFormatada);
+    }
 
+
+    private void mostraPreco(Pacote pacote) {
+        TextView preco = findViewById(R.id.resumo_pacote_preco);
+        String moedaBr = MoedaUtil.formataParaMoedaBr(pacote.getPreco());
+        preco.setText(moedaBr);
+    }
+
+    private void mostraDias(Pacote pacote) {
+        TextView dias = findViewById(R.id.resumo_pacote_dias);
+        String diasFormatado = DiasUtil.formataDiasEmTexto(pacote.getDias());
+        dias.setText(diasFormatado);
+    }
+
+    private void mostraImagem(Pacote pacote) {
+        ImageView imagem = findViewById(R.id.resumo_pacote_imagem);
+        Drawable drawableDoPacote = ResourceUtil.devolveDrawable(this, pacote.getImagem());
+        imagem.setImageDrawable(drawableDoPacote);
+    }
+
+    private void mostraLocal(Pacote pacote) {
+        TextView local = findViewById(R.id.resumo_pacote_local);
+        local.setText(pacote.getLocal());
     }
 }
