@@ -16,4 +16,9 @@
     <string name="valor_da_compra">Valor da compra:</string>
     <string name="orientacao_pagamento">Digite as informações do cartão de crédito que você deseja usar para o pagamento</string>
     <string name="marcara_nome_cartao">abcdefghijklmnopqrstuvwxyzçABCDEFGHIJKLMNOPQRSTUVWXYZÇ\u0020</string>
+    <string name="banner_inicial_do_resumo_da_compra">banner inicial do resumo da compra</string>
+    <string name="imagem_do_pacote">imagem do pacote</string>
+    <string name="confira_o_resumo_da_compra">Confira o resumo da compra:</string>
+    <string name="compra_realizada_com_sucesso">Compra realizada com sucesso :)</string>
+    <string name="parabens_banner_inicial">Parabéns!</string>
 </resources>

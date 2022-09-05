@@ -3,82 +3,82 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activity.ResumoCompraActivity">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/resumo_compra_banner_inicial"
         android:layout_width="0dp"
         android:layout_height="100dp"
+        android:contentDescription="@string/banner_inicial_do_resumo_da_compra"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/screen_background_light"
-        app:tint="@android:color/holo_orange_dark" />
+        app:tint="@android:color/holo_orange_dark"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/resumo_compra_parabens"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Parabéns!"
+        android:text="@string/parabens_banner_inicial"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/resumo_compra_banner_inicial"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/resumo_compra_banner_inicial"
-        app:layout_constraintTop_toTopOf="@+id/resumo_compra_banner_inicial"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="@id/resumo_compra_banner_inicial"
+        app:layout_constraintEnd_toEndOf="@id/resumo_compra_banner_inicial"
+        app:layout_constraintStart_toStartOf="@id/resumo_compra_banner_inicial"
+        app:layout_constraintTop_toTopOf="@id/resumo_compra_banner_inicial"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/resumo_compra_realizada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Compra realizada com sucesso :)"
+        android:text="@string/compra_realizada_com_sucesso"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/resumo_compra_parabens"
-        app:layout_constraintStart_toStartOf="@+id/resumo_compra_parabens"
-        app:layout_constraintTop_toBottomOf="@+id/resumo_compra_parabens" />
+        app:layout_constraintEnd_toEndOf="@id/resumo_compra_parabens"
+        app:layout_constraintStart_toStartOf="@id/resumo_compra_parabens"
+        app:layout_constraintTop_toBottomOf="@id/resumo_compra_parabens"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/resumo_compra_confira"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Confira o resumo da compra:"
+        android:text="@string/confira_o_resumo_da_compra"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resumo_compra_banner_inicial" />
+        app:layout_constraintTop_toBottomOf="@id/resumo_compra_banner_inicial" />
 
     <ImageView
         android:id="@+id/resumo_compra_imagem_local"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/imagem_do_pacote"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resumo_compra_confira"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/resumo_compra_confira"
         tools:srcCompat="@drawable/sao_paulo_sp" />
 
     <TextView
         android:id="@+id/resumo_compra_local"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_margin="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resumo_compra_imagem_local"
+        app:layout_constraintTop_toBottomOf="@id/resumo_compra_imagem_local"
         tools:text="São Paulo" />
 
     <TextView
@@ -86,8 +86,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/resumo_compra_local"
-        app:layout_constraintTop_toBottomOf="@+id/resumo_compra_local"
+        app:layout_constraintStart_toStartOf="@id/resumo_compra_local"
+        app:layout_constraintTop_toBottomOf="@id/resumo_compra_local"
         tools:text="08/12 - 10/12 de 2022" />
 
     <TextView
@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/resumo_compra_data"
-        app:layout_constraintTop_toBottomOf="@+id/resumo_compra_data"
+        app:layout_constraintStart_toStartOf="@id/resumo_compra_data"
+        app:layout_constraintTop_toBottomOf="@id/resumo_compra_data"
         tools:text="R$ 243,99" />
 </androidx.constraintlayout.widget.ConstraintLayout>
