@@ -1,5 +1,7 @@
 package rezende.israel.aluraviagens.ui.activity;
 
+import static rezende.israel.aluraviagens.ui.activity.PacoteActivityConstantes.CHAVE_PACOTE;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,7 +29,6 @@ public class ListaPacotesActivity extends AppCompatActivity {
         Toast.makeText(this, "Seja Bem Vindo", Toast.LENGTH_LONG).show();
         setTitle(TITULO_APPBAR);
         configuraLista();
-
     }
 
     private void configuraLista() {
@@ -38,11 +39,15 @@ public class ListaPacotesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
                 Pacote pacoteClicado = pacote.get(posicao);
-                Intent intent = new Intent(ListaPacotesActivity.this,
-                        ResumoPacoteActivity.class);
-                intent.putExtra("pacote", pacoteClicado);
-                startActivity(intent);
+                vaiParaResumoPacote(pacoteClicado);
             }
         });
+    }
+
+    private void vaiParaResumoPacote(Pacote pacoteClicado) {
+        Intent intent = new Intent(ListaPacotesActivity.this,
+                ResumoPacoteActivity.class);
+        intent.putExtra(CHAVE_PACOTE, pacoteClicado);
+        startActivity(intent);
     }
 }

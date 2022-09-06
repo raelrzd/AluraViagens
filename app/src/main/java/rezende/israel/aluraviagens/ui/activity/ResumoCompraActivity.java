@@ -1,5 +1,7 @@
 package rezende.israel.aluraviagens.ui.activity;
 
+import static rezende.israel.aluraviagens.ui.activity.PacoteActivityConstantes.CHAVE_PACOTE;
+
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -23,16 +25,23 @@ public class ResumoCompraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumo_compra);
         setTitle(TITULO_APPBAR);
+        carregaPacoteRecebido();
 
+    }
+
+    private void carregaPacoteRecebido() {
         Intent intent = getIntent();
-        if (intent.hasExtra("pacote")) {
-            Pacote pacote = (Pacote) intent.getSerializableExtra("pacote");
-            mostraImagem(pacote);
-            mostraLocal(pacote);
-            mostraData(pacote);
-            mostraPreco(pacote);
+        if (intent.hasExtra(CHAVE_PACOTE)) {
+            Pacote pacote = (Pacote) intent.getSerializableExtra(CHAVE_PACOTE);
+            inicializaCampos(pacote);
         }
+    }
 
+    private void inicializaCampos(Pacote pacote) {
+        mostraImagem(pacote);
+        mostraLocal(pacote);
+        mostraData(pacote);
+        mostraPreco(pacote);
     }
 
     private void mostraPreco(Pacote pacote) {
