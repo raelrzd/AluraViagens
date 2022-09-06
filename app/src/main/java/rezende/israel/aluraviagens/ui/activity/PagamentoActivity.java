@@ -2,6 +2,8 @@ package rezende.israel.aluraviagens.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,8 +27,14 @@ public class PagamentoActivity extends AppCompatActivity {
         Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2, new BigDecimal("243.99"));
         mostraPreco(pacoteSaoPaulo);
 
-        Intent intent = new Intent(this, ResumoCompraActivity.class);
-        startActivity(intent);
+        Button botaoFinalizaCompra = findViewById(R.id.pagamento_botao_finaliza_compra);
+        botaoFinalizaCompra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PagamentoActivity.this, ResumoCompraActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

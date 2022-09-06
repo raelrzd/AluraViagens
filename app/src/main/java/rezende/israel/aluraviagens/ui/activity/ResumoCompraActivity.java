@@ -2,6 +2,8 @@ package rezende.israel.aluraviagens.ui.activity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
