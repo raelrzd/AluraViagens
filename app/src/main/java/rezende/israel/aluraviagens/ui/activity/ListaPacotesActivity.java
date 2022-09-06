@@ -32,12 +32,15 @@ public class ListaPacotesActivity extends AppCompatActivity {
 
     private void configuraLista() {
         ListView listaDePacotes = findViewById(R.id.lista_pacotes_listview);
-        List<Pacote> pacote = new PacoteDAO().lista();
+        final List<Pacote> pacote = new PacoteDAO().lista();
         listaDePacotes.setAdapter(new ListaPacotesAdapter(this, pacote));
         listaDePacotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(ListaPacotesActivity.this, ResumoPacoteActivity.class);
+            public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
+                Pacote pacoteClicado = pacote.get(posicao);
+                Intent intent = new Intent(ListaPacotesActivity.this,
+                        ResumoPacoteActivity.class);
+                intent.putExtra("pacote", pacoteClicado);
                 startActivity(intent);
             }
         });

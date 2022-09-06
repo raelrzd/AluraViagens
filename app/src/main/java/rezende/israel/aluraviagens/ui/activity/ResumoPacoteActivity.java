@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.math.BigDecimal;
-
 import rezende.israel.aluraviagens.R;
 import rezende.israel.aluraviagens.model.Pacote;
 import rezende.israel.aluraviagens.util.DiasUtil;
@@ -30,23 +28,26 @@ public class ResumoPacoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resumo_pacote);
         setTitle(TITULO_APPBAR);
 
-        Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2, new BigDecimal("243.99"));
+        Intent intent = getIntent();
+        if (intent.hasExtra("pacote")) {
+            Pacote pacote = (Pacote) intent.getSerializableExtra("pacote");
+            mostraLocal(pacote);
+            mostraImagem(pacote);
+            mostraDias(pacote);
+            mostraPreco(pacote);
+            mostraData(pacote);
 
-        mostraLocal(pacoteSaoPaulo);
-        mostraImagem(pacoteSaoPaulo);
-        mostraDias(pacoteSaoPaulo);
-        mostraPreco(pacoteSaoPaulo);
-        mostraData(pacoteSaoPaulo);
+            Button botaoRealizaPagamento = findViewById(R.id.resumo_pacote_botao_realiza_pagamento);
+            botaoRealizaPagamento.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ResumoPacoteActivity.this, PagamentoActivity.class);
+                    intent.putExtra("pacote", pacote);
+                    startActivity(intent);
+                }
+            });
 
-        Button botaoRealizaPagamento = findViewById(R.id.resumo_pacote_botao_realiza_pagamento);
-        botaoRealizaPagamento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ResumoPacoteActivity.this, PagamentoActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        }
 
     }
 
